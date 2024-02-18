@@ -20,8 +20,10 @@ function App() {
   }, [])
 
   const saveData = () => {
-    axios.post('http://localhost:3000/user/saveUsers', data)
-      .then(response => console.log(response.data));
+    setIsLoading(true);
+    axios.post('http://localhost:3000/user/saveUsers', data).then(response => {
+      setIsLoading(false);
+    });
   }
 
   const getStringSorter = (a, b, key) => {
