@@ -22,7 +22,11 @@ function App() {
   const saveData = () => {
     setIsLoading(true);
     axios.post('http://localhost:3000/user/saveUsers', data).then(response => {
+      alert('data saved!')
       setIsLoading(false);
+    }).catch(() => {
+      setIsLoading(false);
+      alert('An error occured, server is not running')
     });
   }
 
